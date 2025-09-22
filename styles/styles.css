@@ -1,0 +1,752 @@
+/* codificación UTF-8 */
+@charset "UTF-8";
+
+
+/*Reseteo de Márgenes*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*-------------------------------------------- Tipografías --------------------------------------------*/
+
+/* Poppins - ExtraLight (peso 200) */
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+}
+
+/* Poppins - Regular (peso 400) */
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+/* Poppins - Bold (peso 700) */
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+/* Roboto - Regular (peso 400) */
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/static/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+/*----------------------------------------------Html-------------------------------------------------------------------*/
+
+html{
+    scroll-behavior: smooth;
+    font-size: 16px; /*Tamaño base de futuros REM*/
+}
+
+/*----------------------------------------------Root--------------------------------------------------------------------*/
+:root{
+    /*colores prinicipales*/
+        --color-fondo: rgba(232, 239, 246, 1);
+        --color-texto: rgba(72, 100, 126, 1);
+        --color-principal: rgba(128, 171, 235, 1);
+        --color-blanco: rgba(255, 255, 255, 1);
+        --color-fondo-nav: rgba(255, 255, 255, 0.58);
+
+
+    /*Tipografías*/
+
+        --fuente-títulos: 'Poppins', sans-serif;
+        --fuente-texto: 'Roboto', sans-serif;
+        --altura-linea-base: 1.5;
+
+
+    /*Tamaños*/
+
+        --tamaño-h1: 5rem;
+        --tamaño-h2: 2rem;
+        --tamaño-h3: 1.5rem;
+        --tamaño-nav: 1.3rem;
+        --tamaño-texto: 1.25rem;
+}
+
+
+/*-------------------------------------------Body------------------------------------------------------------------------*/
+
+
+body{
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-texto);
+    font-size: var(--tamaño-texto);
+    color: var(--color-texto);
+    line-height: var(--altura-linea-base);
+
+}
+
+
+/*-----------------------------------Decoración básica Hs-------------------------------------------------------------------*/
+
+
+h1{
+    color: var(--color-blanco);
+    font-family: var(--fuente-títulos);
+    font-size: var(--tamaño-h1);
+    font-weight: 200; /*Extra-Light*/
+    line-height: var(--altura-linea-base);
+}
+
+h2{
+    color: var(--color-principal);
+    font-family: var(--fuente-títulos);
+    font-size: var(--tamaño-h2);
+    font-weight: 400; /*Regular*/
+    line-height: var(--altura-linea-base);
+}
+
+h3{
+    color: var(--color-principal);
+    font-family: var(--fuente-títulos);
+    font-size: var(--tamaño-h3);
+    font-weight: 400; /*Regular*/
+    line-height: var(--altura-linea-base);
+}
+
+
+
+
+
+/*---------------------------------------------Header-------------------------------------------------------------------------------------*/
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.05); /* Negro al 5% de opacidad */
+    z-index: -1; /* Se queda debajo del contenido */
+}
+
+
+header{
+    position: relative;
+    background-image: url('./images/me\ at\ kvalvika\ beach.JPG');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 91vh;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+/*--------------H1------------*/
+
+.contenedor-h1{
+
+    height: 91vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    white-space: normal;
+    position: sticky;
+    top: 0rem;
+    margin-bottom: 0rem;
+    margin-top: -10rem;
+}
+
+/*-----------------------------------------------NAV-------------------------------------------------------------------------*/
+
+nav{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+
+
+    
+    color: var(--color-blanco);
+    font-family: var(--fuente-títulos);
+    font-size: var(--tamaño-nav);
+    font-weight: 700; /*Bold*/
+    line-height: var(--altura-linea-base);
+    background-color: var(--color-texto);
+}
+
+
+nav ul{
+    
+    text-align: center;
+    display: flex;
+    justify-content:center;
+    list-style-type: none;
+    flex-direction: row;
+    gap: clamp(1rem, 5vw, 6rem);
+    padding: 1rem;
+
+}
+
+
+
+nav a {
+    outline: none;
+    text-decoration: none;
+    border-radius: 2rem;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    color: inherit;
+    transition: background-color 0.5s;
+
+
+}
+
+nav a:hover{
+    background-color: var(--color-principal);
+}
+
+#boton-nav {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.7); 
+    border: 1px solid var(--color-principal);
+    border-radius: 8px; 
+    padding: 0.2rem 0.5rem; 
+    font-size: 1.8rem; 
+    color: var(--color-texto); 
+    cursor: pointer;
+    position: fixed;   
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1100;
+    backdrop-filter: blur(4px); 
+}
+
+/*-----------------------------------------------H2-------------------------------------------------------------------------*/
+h2 {
+    display: block; /* ahora es block */
+    width: max-content; /* ancho ajustado al texto */
+    margin: 2rem auto; /* centrado horizontal */
+    position: relative;
+    padding: 0;
+}
+
+/*Subrayado de H2*/
+h2::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.15rem;
+    background-color: var(--color-principal);
+    margin-top: 0.3rem;
+}
+
+/*-----------------------------------------------Inicio-------------------------------------------------------------------------*/
+
+.contenedor-inicio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1rem;
+    flex-wrap: wrap;  /*Para apilar en pantallas pequeñas*/
+    margin-left: 10%;
+    margin-right: 10%
+}
+
+/*-----Imagen Orla Fernando-----*/
+.contenedor-inicio figure img {
+    width: 20rem;
+    max-width: 100%;
+    height:auto;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 23%;
+}
+
+.texto-inicio{
+    max-width: 40rem;
+    text-align: justify;
+    font-size: var(--tamaño-texto);
+}
+
+.contenedor-inicio figcaption {
+    text-align: center;
+}
+
+
+/*-----------------------------------------------Proyectos-------------------------------------------------------------------------*/
+
+
+#proyectos {
+    padding: 3rem 2rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#proyectos h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.grid-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    gap: 4rem;
+    margin: 0 auto;
+}
+
+.tarjeta-proyecto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: var(--color-blanco);
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    padding: 1.5rem;
+    text-decoration: none; 
+    color: inherit;        
+    transition: transform 0.7s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-proyecto:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tarjeta-proyecto img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.tarjeta-proyecto h3 {
+    font-size: 1.2rem;
+    margin-top: auto; /* empuja el título hacia abajo si la tarjeta crece */
+}
+
+
+
+/*-----------------------------------------------Curriculum-------------------------------------------------------------------------*/
+
+
+#curriculum {
+    padding: 3rem 2rem;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+#curriculum h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#curriculum h3 {
+    text-align: center;
+    margin: 2rem 0 1rem 0;
+}
+
+/* Tabla de educación */
+#curriculum table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    margin: 0 auto;
+    overflow-x: auto;
+    max-width: 100%;
+    table-layout: fixed;
+}
+
+#curriculum th, #curriculum td {
+    border: 1px solid rgba(72,100,126,0.3);
+    padding: 0.8rem;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+#curriculum th {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+}
+
+#curriculum tbody tr:nth-child(even) {
+    background-color: rgba(128,171,235,0.1);
+}
+
+/* Listas de habilidades */
+#curriculum ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+
+
+
+/*-----------------------------------------------Sobre mi-------------------------------------------------------------------------*/
+
+#sobre-mi{
+    padding: 3rem 2rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.contenedor-sobre-mi {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 5rem;
+
+}
+
+.texto-sobre-mi {
+    flex: 1 1 60%; /* Crece(1), Encoge(1), Base del 60% */
+    max-width: 60rem;
+    text-align: justify;
+}
+
+#sobre-mi figure {
+    flex: 1 1 40%; /* Crece(1), Encoge(1), Base del 40% */
+    margin: 0;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+#sobre-mi img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 7%;
+}
+
+/*-----------------------------------------------Contacto-------------------------------------------------------------------------*/
+
+#contacto {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+#contacto h2 {
+    margin-bottom: 2rem;
+}
+
+#contacto form {
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#contacto label {
+    text-align: left;
+    font-weight: bold;
+}
+
+#contacto input,
+#contacto textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+    border-color: #0077b6; 
+    outline: none;
+}
+
+#contacto button {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #023e8a;;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contacto button:hover {
+    background-color: var(--color-principal);
+}
+
+/*---------------------------------------------------Footer-------------------------------------------------------------------------*/
+
+
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 1.5rem; 
+    margin-bottom: 2rem;
+}
+
+
+
+footer ul a {
+    color: var(--color-principal); 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer ul a:hover {
+    color: var(--color-texto); 
+}
+
+footer p{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/*-----------------------------------------------Cookies-------------------------------------------------------------------------*/
+
+
+
+#aviso-cookies {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-texto);
+    color: var(--color-blanco);
+    padding: 1.5rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    
+    transform: translateY(100%); /* Empieza oculto abajo */
+    transition: transform 0.5s ease-in-out;
+    z-index: 2000;
+}
+
+#aviso-cookies.activo {
+    transform: translateY(0); /* Se muestra al añadir la clase 'activo' */
+}
+
+#aviso-cookies p {
+    margin: 0;
+}
+
+#aviso-cookies a {
+    color: var(--color-principal);
+    text-decoration: underline;
+}
+
+#aviso-cookies .botones-cookies {
+    display: flex;
+    gap: 1rem;
+}
+
+#aviso-cookies button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--fuente-títulos);
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+#aceptar-cookies {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+}
+
+#aceptar-cookies:hover {
+    background-color: var(--color-principal); 
+}
+
+#rechazar-cookies {
+    background-color: transparent;
+    border: 2px solid var(--color-principal);
+    color: var(--color-principal);
+}
+
+#rechazar-cookies:hover {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------- RESPONSIVE-------------------------------------------------------- */
+
+@media (max-width: 1390px){
+
+    .contenedor-sobre-mi{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+
+
+/* Para tablets y pantallas más pequeñas (hasta 768px) */
+@media (max-width: 791px) {
+
+    /* 1. NAVEGACIÓN: columna */
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    nav a {
+        display: inline-block; /* Aseguramos que el padding funcione bien */
+    }
+
+    /* 2. TAMAÑOS: Reducimos*/
+    :root {
+        --tamaño-h1: 3.5rem;
+        --tamaño-h2: 1.8rem;
+        --tamaño-texto: 1.1rem;
+    }
+    
+    h1 {
+        margin-top: -6rem; 
+    }
+
+    /* 3. CONTENEDORES: Menos margen lateral */
+    .contenedor-inicio,
+    #proyectos,
+    #curriculum,
+    .contenedor-sobre-mi, #inicio, #contacto {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+    }
+    
+    .contenedor-sobre-mi {
+        gap: 2rem;
+        flex-wrap: wrap; 
+    }
+
+/*Menú Hamburguesa*/
+    
+    /* 1. Muestra el botón de la hamburguesa */
+    #boton-nav {
+        display: block;
+        z-index: 1010;
+    }
+
+    /* 2. Estilos del panel de navegación lateral (oculto por defecto) */
+    #nav-principal {
+        display: block; 
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px; 
+        max-width: 80%; 
+        height: 100%;
+        background-color: var(--color-texto);
+        box-shadow: -3px 0 15px rgba(0,0,0,0.25); 
+        
+        /* Empieza fuera de la pantalla (a la derecha) */
+        transform: translateX(100%); 
+        transition: transform 0.4s ease-in-out; /* Animación */
+        
+        padding-top: 5rem; 
+
+        z-index: 1000;
+    }
+
+/*  5. FOOTER:  */
+
+    footer ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* 3. Muestra la navegación cuando tiene la clase .nav-visible */
+    #nav-principal.nav-visible {
+        transform: translateX(0); 
+    }
+
+    /* 4. Ajusta la lista de enlaces dentro del panel */
+    #nav-principal ul {
+        flex-direction: column;
+        align-items: flex-start; 
+        gap: 1.5rem;
+        padding: 0 2rem; 
+    }
+}
+
+
+
+@media (max-width: 483px) {
+
+    /* 1. FUENTES: */
+    :root {
+        --tamaño-h1: 2.5rem; 
+        --tamaño-h2: 1.6rem;
+    }
+    
+
+    h1 {
+        margin-top: -3rem; 
+    }
+
+    /* 2. IMÁGENES: */
+    .contenedor-inicio figure img {
+        width: 12rem; 
+    }
+
+    /* 3. ESPACIADOS: */
+    .contenedor-inicio,
+    .contenedor-sobre-mi,
+    .grid-proyectos {
+        gap: 1.5rem; 
+    }
+    
+    /* 4. FORMULARIO:*/
+    #contacto input, #contacto textarea, #contacto button {
+        font-size: 0.9rem;
+    }
+
+    /*  5. FOOTER:  */
+
+    footer {
+        font-size: 0.9rem;
+    }
+
+}
+
+
+
